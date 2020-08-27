@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon" />
+        <link href="css/index.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/waifu.css" rel="stylesheet" type="text/css" />
+        <title>OI Games</title>
+    </head>
+    <body>
+        <noscript>
+            <div class="warning">
+                请开启JavaScript权限以正常浏览此网站。
+            </div>
+        </noscript>
+        
+        <div class="content">
+            
+            <div class="header">
+                <img src="../../images/logo.png" height="25" width="204" />
+                <ul class="navigator">
+                    <li><a href="lawarthur.github.io">主站</a></li>
+                    <li><a href="//">首页</a></li>
+                </ul>
+            </div>
+            <div class="description">
+                <div class="title">SWAP <div class="field">图论</div></div>
+                <div class="difficulty">游戏难度：<span class="easy">简单</span> 代码难度：<span class="selection">省选/NOI</span></div>
+                <div class="origin">APIO2020 T2</div>
+                <div class="information">交换两个点上的棋子，过程中棋子不能同时处在同一个点上，求经过的边中最大值的最小值。</div>
+            </div>
+
+            <table>
+                <tr>
+                    <td class="display">
+                        <canvas class="game" id="game"></canvas>
+                    </td>
+
+                    <td class="control">
+                        <div class="answer">当前答案：<span id="answer"></span></div>
+                        <div><button id="redraw">重新布局</button></div>
+                        <div><button id="undo">撤销</button></div>
+                        <div><button id="noanswer">判定无解</button><button id="submit">提交答案</button></div>
+                        <div><button id="regenerate">重新生成问题</button></div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="copyright">&copy;2019 LAWArthur</div>
+        </div>
+
+        <div class="waifu">
+    
+            <!-- 提示框 -->
+            <div class="waifu-tips"></div>
+            
+            <!-- 看板娘画布 -->
+            <canvas id="live2d" class="live2d"></canvas>
+            
+            <!-- 工具栏 -->
+            <div class="waifu-tool">
+                <span class="fui-home"></span>
+                <span class="fui-chat"></span>
+                <span class="fui-eye"></span>
+                <span class="fui-user"></span>
+                <span class="fui-photo"></span>
+                <span class="fui-info-circle"></span>
+                <span class="fui-cross"></span>
+            </div>
+            
+        </div>
+
+        <div class="mask">
+            <div class="result">
+                <div class="score" id="ac">AC</div>
+                <div class="score" id="wa">WA</div>
+                <div class="say md">
+小落的话：
+
+这道题来自于 __APIO2020 T2__，解法利用了最小生成树，是一道非常巧妙的题目。
+
+复杂度可以达到 \(O(m\log m + n\log n + q\log n)\)。
+                </div>
+                <button id="close">关闭</button><button id="car">关闭并重新生成题目</button>
+            </div>
+        </div>
+
+        <script src="../../scripts/jquery-3.3.1.js"></script>
+        <script src="../../scripts/marked.min.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../scripts/compilemd.js"></script>
+        <script src="scripts/problem.js"></script>
+        <script src="scripts/solver.js"></script>
+        <script src="scripts/drawer.js"></script>
+        <script src="scripts/index.js"></script>
+        <script src="../../assets/waifu-tips.js"></script>
+        <script src="../../assets/live2d.js"></script>
+    </body>
+</html>

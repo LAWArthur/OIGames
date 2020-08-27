@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+        <link href="css/index.css" rel="stylesheet" type="text/css" />
+        <link href="assets/waifu.css" rel="stylesheet" type="text/css" />
+        <title>OI Games</title>
+    </head>
+    <body>
+        <noscript>
+            <div class="warning">
+                请开启JavaScript权限以正常浏览此网站。
+            </div>
+        </noscript>
+        
+        <div class="content">
+            
+            <div class="header">
+                <img src="images/logo.png" height="25" width="204" />
+                <ul class="navigator">
+                    <li><a href="lawarthur.github.io">主站</a></li>
+                </ul>
+            </div>
+            
+            <ul class="menu">
+                <li><a href="games/swap/index.html">
+                    <div class="title">SWAP <div class="field">图论</div></div>
+                    <div class="difficulty">游戏难度：<span class="easy">简单</span> 代码难度：<span class="selection">省选/NOI</span></div>
+                    <div class="origin">APIO2020 T2</div>
+                </a></li>
+            </ul>
+            
+            <div class="copyright">&copy;2019 LAWArthur</div>
+        </div>
+
+        <div class="waifu">
+    
+            <!-- 提示框 -->
+            <div class="waifu-tips"></div>
+            
+            <!-- 看板娘画布 -->
+            <canvas id="live2d" class="live2d"></canvas>
+            
+            <!-- 工具栏 -->
+            <div class="waifu-tool">
+                <span class="fui-home"></span>
+                <span class="fui-chat"></span>
+                <span class="fui-eye"></span>
+                <span class="fui-user"></span>
+                <span class="fui-photo"></span>
+                <span class="fui-info-circle"></span>
+                <span class="fui-cross"></span>
+            </div>
+            
+        </div>
+        <script src="scripts/jquery-3.3.1.js"></script>
+        <script src="scripts/index.js"></script>
+        <script src="assets/waifu-tips.js"></script>
+        <script src="assets/live2d.js"></script>
+    </body>
+</html>
