@@ -32,9 +32,6 @@
         }
     },
     "mouseover": [
-
-    ],
-    "mouseenter": [
         { "selector": ".container a[href^='http']", "text": ["要看看 <span style=\"color:#0099cc;\">{text}</span> 么？"] },
         { "selector": ".fui-home", "text": ["点击前往首页，想回到上一页可以使用浏览器的后退功能哦"] },
         { "selector": ".fui-chat", "text": ["一言一语，一颦一笑。一字一句，一颗赛艇。"] },
@@ -46,7 +43,7 @@
         
         {"selector": ".playerselection", "text": ["在博弈论里，选择正确的出手顺序可是很重要的哦"]},
         { "selector": "#regenerate", "text": ["太难了？点此重新生成题目"] },
-        { "selector": "#game", "text": ["点击便可以将高亮的方块全部去除哦"] },
+        { "selector": "#game,#game td", "text": ["点击便可以将高亮的方块全部去除哦"] },
         { "selector": ".waifu #live2d", "text": ["诶诶诶？怎么了嘛"] }
     ],
     "click": [
@@ -59,7 +56,7 @@
             ]
         },
         {
-            "selector": "#game",
+            "selector": "#game td",
             "text": [
                 "不是很看的明白……",
                 "你到底是要输了还是要赢了呢？",
