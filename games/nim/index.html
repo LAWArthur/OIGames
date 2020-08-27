@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon" />
+        <link href="css/index.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/waifu.css" rel="stylesheet" type="text/css" />
+        <title>OI Games</title>
+    </head>
+    <body>
+        <noscript>
+            <div class="warning">
+                请开启JavaScript权限以正常浏览此网站。
+            </div>
+        </noscript>
+        
+        <div class="content">
+            
+            <div class="header">
+                <img src="../../images/logo.png" height="25" width="204" />
+                <ul class="navigator">
+                    <li><a href="lawarthur.github.io">主站</a></li>
+                    <li><a href="//">首页</a></li>
+                </ul>
+            </div>
+            <div class="description">
+                <div class="title">Nim游戏 <div class="field">博弈论</div></div>
+                <div class="difficulty">游戏难度：<span class="medium">中等</span> 代码难度：<span class="senior">普及+/提高</span></div>
+                <div class="information">双方依次挑选一堆取出一些石子（不能不取），无法操作者为负。</div>
+            </div>
+
+            <table>
+                <tr>
+                    <td class="display">
+                        <table class="game" id="game"></table>
+                    </td>
+
+                    <td class="control">
+                        <div class="playrole"><button class="playerselection" id="first">先手</button><button class="playerselection" id="second">后手</button></div>
+                        <div><button id="regenerate">重新生成题目</button></div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="copyright">&copy;2019 LAWArthur</div>
+        </div>
+
+        <div class="waifu">
+    
+            <!-- 提示框 -->
+            <div class="waifu-tips"></div>
+            
+            <!-- 看板娘画布 -->
+            <canvas id="live2d" class="live2d"></canvas>
+            
+            <!-- 工具栏 -->
+            <div class="waifu-tool">
+                <span class="fui-home"></span>
+                <span class="fui-chat"></span>
+                <span class="fui-eye"></span>
+                <span class="fui-user"></span>
+                <span class="fui-photo"></span>
+                <span class="fui-info-circle"></span>
+                <span class="fui-cross"></span>
+            </div>
+            
+        </div>
+
+        <div class="mask">
+            <div class="result">
+                <div class="score" id="ac">AC</div>
+                <div class="score" id="wa">WA</div>
+                <div id="comparison"></div>
+                <div class="say md">
+小落的话：
+
+这道题是经典的博弈论问题，有一个非常漂亮的结论：
+
+\[先手获胜\Leftrightarrow a_1\oplus a_2\oplus \dots \oplus a_n \neq 0\]
+
+证明十分容易，可以自己尝试。
+
+这个结论衍生出了 SG 函数，成为了很多双人博弈论游戏的基础。
+                </div>
+                <button id="car">关闭并重新生成题目</button>
+            </div>
+        </div>
+
+        <script src="../../scripts/jquery-3.3.1.js"></script>
+        <script src="../../scripts/marked.min.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../scripts/compilemd.js"></script>
+        <script src="scripts/problem.js"></script>
+        <script src="scripts/solver.js"></script>
+        <script src="scripts/drawer.js"></script>
+
+        <script src="../../assets/waifu-tips.js"></script>
+        <script src="../../assets/live2d.js"></script>
+        <script src="scripts/index.js"></script>
+    </body>
+</html>
