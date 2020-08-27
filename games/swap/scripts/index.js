@@ -7,7 +7,7 @@ let finish;
 ($(()=>{
     live2d_settings['modelId']=1;
     live2d_settings['modelTexturesId']=62;
-    initModel('../datas/waifu-tips.json');
+    initModel('datas/waifu-tips.json');
     regenerate();
     bindEvents();
 }))();
