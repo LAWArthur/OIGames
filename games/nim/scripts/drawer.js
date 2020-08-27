@@ -63,6 +63,6 @@ class Drawer {
             this.stones[ind][1].remove();
             this.stones[ind].splice(1,1);
         }
-        
+        this.counters[ind].text(this.stones[ind].length-1);
     }
 }

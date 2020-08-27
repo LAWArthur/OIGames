@@ -1,7 +1,7 @@
 class Problem {
 
     constructor() {
-        this.nonZero = this.n = Math.floor(Math.random()*20+1);
+        this.nonZero = this.n = Math.floor(Math.random()*20)+1;
         let lwin = Math.random() > 0.5;
         this.player = 2;
         this.current = 0;
@@ -12,12 +12,12 @@ class Problem {
         this.stones = [];
         let xsum = 0;
         for(let i=1;i<=this.n;i++){
-            if(i===this.n && lwin){
+            if(this.n!=1 && i===this.n && lwin){
                 this.stones[i] = xsum;
                 xsum ^= this.stones[i];
             }
             else{
-                this.stones[i] = Math.floor(Math.random()*32+1);
+                this.stones[i] = Math.floor(Math.random()*32)+1;
                 xsum ^= this.stones[i];
             }
         }

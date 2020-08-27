@@ -78,7 +78,11 @@
 
 这道题是经典的博弈论问题，有一个非常漂亮的结论：
 
-\[先手获胜\Leftrightarrow a_1\oplus a_2\oplus \dots \oplus a_n \neq 0\]
+设 \( S= a_1\oplus a_2\oplus \dots \oplus a_n \neq 0 \)，
+
+则 先手获胜 \( \Leftrightarrow S \neq 0 \)。
+
+因为如果 \( S \neq 0 \)，总能找到一种操作方式使得 \(S=0\)，而当 \(S=0\) 时找不到任何一种操作方式可以仍使 \(S=0\)。
 
 证明十分容易，可以自己尝试。
 
