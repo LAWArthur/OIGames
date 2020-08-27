@@ -219,6 +219,13 @@ function loadTipsMessage(result) {
             showMessage(text, 3000, true);
         });
     });
+    $.each(result.mouseenter, function (index, tips){
+        $(document).on("mouseenter", tips.selector, function (){
+            var text = getRandText(tips.text);
+            text = text.render({text: $(this).text()});
+            showMessage(text, 3000, true);
+        });
+    });
     $.each(result.seasons, function (index, tips){
         var now = new Date();
         var after = tips.date.split('-')[0];
