@@ -188,11 +188,11 @@ table {
     text-align: center;
 }
 
-#ac {
+#ac,.ac {
     color: chartreuse;
 }
 
-#wa {
+#wa,.wa {
     color: red;
 }
 
