@@ -78,6 +78,7 @@ function bindEvents() {
             $("#comparison").show();
         }
         $(".mask").show();
+        $(".result").hide().show("fold");
     });
 
     $("#noanswer").click(() => {
@@ -93,6 +94,7 @@ function bindEvents() {
             $("#comparison").show();
         }
         $(".mask").show();
+        $(".result").hide().show("fold");
     });
 
     $("#close").click(() => {

@@ -53,6 +53,7 @@ function operate(){
         $("#wa").hide();
         $("#comparison").hide();
         $(".mask").show();
+        $(".result").hide().show("fold");
     }
     else {
         solver.operate();
@@ -68,4 +69,5 @@ function lost(){
     $("#comparison").html(`<b>好像有点问题</b> ${problem.player === problem.winner?"选择了正确的出手顺序，无奈何技术不过关。":"已经非常努力了，可惜出手顺序没选好。"}`);
     $("#comparison").show();
     $(".mask").show();
+    $(".result").hide().show("fold");
 }
