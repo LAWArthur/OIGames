@@ -3,6 +3,8 @@ class Drawer {
         this.canvas = canvas;
         this.context = canvas.getContext("2d");
         this.problem = problem;
+        this.candrag = false;
+        this.dragging = -1;
         canvas.width = this.width = width;
         canvas.height = this.height = height;
 
@@ -30,12 +32,47 @@ class Drawer {
         return ((a * x + b * y + c) * (a * x + b * y + c) / (a * a + b * b)) <= 5 && this.between(x0, x1, x) && this.between(y0, y1, y);
     }
 
-    draw(mouseX, mouseY) {
+    isPointInCircle(x0,y0,r,x,y){
+        return(x0-x)*(x0-x)+(y0-y)*(y0-y)<=r*r;
+    }
+
+    getDragging(mouseX, mouseY) {
+
+        if(!this.candrag)return;
+
+        let rect = this.canvas.getBoundingClientRect();
+        let x = mouseX - rect.left * (this.canvas.width / rect.width);
+        let y = mouseY - rect.top * (this.canvas.height / rect.height);
+        for (let i = 0; i < this.problem.n; i++) {
+
+            this.context.beginPath();
+            this.context.arc(this.positions[i][0], this.positions[i][1], 7, 0, Math.PI * 2);
+            
+            if(this.isPointInCircle(this.positions[i][0],this.positions[i][1],7,x,y)) {
+                this.dragging = i;
+            }
+        }
+    }
+
+    drag(mouseX,mouseY){
+        if(!this.candrag || this.dragging < 0)return;
+        let rect = this.canvas.getBoundingClientRect();
+        let x = mouseX - rect.left * (this.canvas.width / rect.width);
+        let y = mouseY - rect.top * (this.canvas.height / rect.height);
+        this.positions[this.dragging] = [x,y];
+    }
+
+    clear() {
+        this.canvas.width = this.width;
+    }
+
+    draw(mouseX,mouseY){
         this.clear();
 
         let clickEdge = -1;
 
         for (let i = 0; i < this.problem.m; i++) {
+            
             this.context.beginPath();
 
             let u = this.positions[this.problem.edges[i].u], v = this.positions[this.problem.edges[i].v];
@@ -55,7 +92,7 @@ class Drawer {
                 let x = mouseX - rect.left * (this.canvas.width / rect.width);
                 let y = mouseY - rect.top * (this.canvas.height / rect.height);
 
-                if (this.isPointOnLine(u[0], u[1], v[0], v[1], x, y)) {
+                if (this.dragging < 0 && this.isPointOnLine(u[0], u[1], v[0], v[1], x, y)) {
                     this.context.fillStyle = this.context.strokeStyle = "#FFFF00";
                     clickEdge = i;
                 }
@@ -88,9 +125,5 @@ class Drawer {
         this.context.fillStyle = "#0000CC";
         this.context.fill();
         return clickEdge;
-    }
-
-    clear() {
-        this.canvas.width = this.width;
     }
 }

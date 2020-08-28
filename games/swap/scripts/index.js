@@ -19,14 +19,40 @@ function bindEvents() {
     })
 
     $("#game").mousemove((e) => {
+        drawer.drag(e.clientX,e.clientY);
         clickEdge = drawer.draw(e.clientX, e.clientY);
     });
 
+    $("#game").mousedown((e)=>{
+        drawer.candrag = true;
+        drawer.getDragging(e.clientX,e.clientY);
+    });
+
+    $("#game").mouseup((e)=>{
+
+    });
+
     $("#game").click((e) => {
+
         clickEdge = drawer.draw(e.clientX, e.clientY);
         setFinish(problem.swap(clickEdge));
         clickEdge = drawer.draw(e.clientX, e.clientY);
         $("#answer").text(problem.answer);
+        console.log("End dragging");
+        drawer.cangrag = false;
+        drawer.dragging = -1;
+    });
+
+    $("#game").on("dragstart",(e)=>{
+        drawer.dragging = true;
+    });
+     
+    $("#game").on("drag",(e)=>{
+        drawer.drag(e.clientX,e.clientY);
+    })
+
+    $("#game").on("dragend",(e)=>{
+        drawer.dragging = false;
     });
 
     $("#undo").click((e) => {

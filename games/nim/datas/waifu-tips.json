@@ -44,7 +44,7 @@
         {"selector": ".playerselection", "text": ["在博弈论里，选择正确的出手顺序可是很重要的哦"]},
         { "selector": "#regenerate", "text": ["太难了？点此重新生成题目"] },
         { "selector": "#game,#game td", "text": ["点击便可以将高亮的方块全部去除哦"] },
-        { "selector": ".waifu #live2d", "text": ["诶诶诶？怎么了嘛"] }
+        { "selector": ".waifu #live2d", "text": ["我挡到你了嘛？可以把我拖到旁边去哦"] }
     ],
     "click": [
         {

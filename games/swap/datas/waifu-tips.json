@@ -42,13 +42,13 @@
         { "selector": ".fui-cross", "text": ["你不喜欢我了吗..."] },
         
         { "selector": "#answer", "text": ["这里是当前走过的边里的最大值！"] },
-        { "selector": "#redraw", "text": ["点和线排列不好看？点这里重新绘制吧！"] },
+        { "selector": "#redraw", "text": ["点和线排列不好看？点这里重新绘制吧！\n当然，<b>直接在图上拖动点</b>也是可以的！"] },
         { "selector": "#undo", "text": ["走错了？点此撤销" ] },
         { "selector": "#noanswer", "text": ["好像无解？那么就点这里吧"] },
         { "selector": "#submit", "text": ["完成了？点此提交你的答案"] },
         { "selector": "#regenerate", "text": ["不会做了？点此重新生成题目"] },
         { "selector": "#game", "text": ["点击红色的边交换，只要将绿色的点交换到蓝色的位置，蓝色的点交换到绿色的位置就可以了"] },
-        { "selector": ".waifu #live2d", "text": ["诶诶诶？怎么了嘛"] }
+        { "selector": ".waifu #live2d", "text": ["我挡到你了吗？那么把我拖到旁边去吧"] }
     ],
     "click": [
         {
