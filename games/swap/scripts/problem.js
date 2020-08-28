@@ -1,7 +1,7 @@
 class Problem {
 
 
-    constructor(type = 0) {
+    constructor(type = 0,...args) {
         this.answer = 0;
         this.operations = [];
         switch (type) {
@@ -12,7 +12,16 @@ class Problem {
                     this.curY = this.y = Math.floor(Math.random() * this.n);
                 } while (this.x == this.y);
                 this.generateEdges();
+                this.name = Math.floor(Math.random()*1000000);
                 console.log(this.edges);
+                break;
+            case 1:
+                this.n = args[0];
+                this.curX = this.x = args[1];
+                this.curY = this.y = args[2];
+                this.edges = args[3];
+                this.m = this.edges.length;
+                this.name = args[4];
                 break;
         }
 

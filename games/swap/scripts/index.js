@@ -3,11 +3,13 @@ let solver;
 let problem;
 let clickEdge = -1;
 let finish;
+let savedProblems;
 
 ($(() => {
     live2d_settings['modelId'] = 1;
     live2d_settings['modelTexturesId'] = 62;
     initModel('datas/waifu-tips.json');
+    getSavedProblems();
     regenerate();
     bindEvents();
 }))();
@@ -105,12 +107,27 @@ function bindEvents() {
         $(".mask").hide();
         regenerate();
     });
+
+    $("#save").click(() => {
+        let name = getName();
+        savedProblems[name] = {n:problem.n,x:problem.x,y:problem.y,edges:problem.edges};
+        addSavedOption(name);
+    });
+
+    $("#load").click(() => {
+        loadSavedProblem();
+    });
+
+    window.onunload = () => {
+        localStorage.setItem("savedProblems",JSON.stringify(savedProblems));
+    };
 }
 
 function regenerate() {
     setFinish(false);
     $("#answer").text(0);
     problem = new Problem();
+    $("#problemid").text(`#${problem.name}`);
     solver = new Solver(problem);
     drawer = new Drawer($("#game")[0], problem, 750, 750);
     drawer.draw(0, 0);
@@ -120,4 +137,34 @@ function setFinish(fin) {
     finish = fin;
     if (finish) $("#submit").removeAttr("disabled");
     else $("#submit").attr({ disabled: "disabled" });
+}
+
+function getSavedProblems(){
+    if(localStorage.getItem("savedProblems") == null)savedProblems = {};
+    else savedProblems = JSON.parse(localStorage.getItem("savedProblems"));
+    for(let i in savedProblems){
+        addSavedOption(i);
+    }
+}
+
+function getName(){
+    return problem.name;
+}
+
+function loadSavedProblem(){
+    let key = $("#saved").val();
+    if(key!=null){
+        let p = savedProblems[key];
+        setFinish(false);
+        $("#answer").text(0);
+        problem = new Problem(1,p.n,p.x,p.y,p.edges,key);
+        solver = new Solver(problem);
+        drawer = new Drawer($("#game")[0], problem, 750, 750);
+        $("#problemid").text(`#${problem.name}`);
+        drawer.draw(0, 0);
+    }
+}
+
+function addSavedOption(option){
+    $("#saved").append($("<option></option>").attr("value",option).text(`#${option}`));
 }

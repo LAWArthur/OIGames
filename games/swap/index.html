@@ -39,7 +39,9 @@
                     </td>
 
                     <td class="control">
+                        <div id="problemid"></div>
                         <div class="answer">当前答案：<span id="answer"></span></div>
+                        <div>收藏的题目：<select id="saved"></select><button id="load">加载</button></div>
                         <div><button id="redraw">重新布局</button></div>
                         <div><button id="undo">撤销</button></div>
                         <div><button id="noanswer">判定无解</button><button id="submit">提交答案</button></div>
@@ -84,7 +86,7 @@
 
 复杂度可以达到 \( O(m\log m + n\log n + q\log n) \) 。
                 </div>
-                <button id="close">关闭</button><button id="car">关闭并重新生成题目</button>
+                <button id="close">关闭</button><button id="car">关闭并重新生成题目</button><button id="save">收藏此题</button>
             </div>
         </div>
 
