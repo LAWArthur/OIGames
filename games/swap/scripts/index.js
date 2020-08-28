@@ -79,8 +79,7 @@ function bindEvents() {
             $("#comparison").html(`<b>好像有点问题</b> 你的答案为 <span class="wa">${problem.answer}</span>，Solver 给出的答案为<span class="ac">${solver.answer}</span>。`);
             $("#comparison").show();
         }
-        $(".mask").show();
-        $(".result").hide().show("fold");
+        showResult();
     });
 
     $("#noanswer").click(() => {
@@ -95,8 +94,7 @@ function bindEvents() {
             $("#comparison").html(`<b>好像有点问题</b> 你认为此题无解，但 Solver 认为有解，答案为<span class="ac">${solver.answer}</span>。`);
             $("#comparison").show();
         }
-        $(".mask").show();
-        $(".result").hide().show("fold");
+        showResult();
     });
 
     $("#close").click(() => {
@@ -148,7 +146,7 @@ function getSavedProblems(){
 }
 
 function getName(){
-    return problem.name;
+    return $("#savename").val();
 }
 
 function loadSavedProblem(){
@@ -167,4 +165,10 @@ function loadSavedProblem(){
 
 function addSavedOption(option){
     $("#saved").append($("<option></option>").attr("value",option).text(`#${option}`));
+}
+
+function showResult(){
+    $(".mask").show();
+    $(".result").hide().show("fold");
+    $("#savename").val(problem.name);
 }
