@@ -116,6 +116,8 @@ function bindEvents() {
         loadSavedProblem();
     });
 
+    $("#post").click(saveToSociety);
+
     window.onunload = () => {
         localStorage.setItem("savedProblems",JSON.stringify(savedProblems));
     };
@@ -171,4 +173,18 @@ function showResult(){
     $(".mask").show();
     $(".result").hide().show("fold");
     $("#savename").val(problem.name);
+}
+
+function saveToSociety(){
+    let data = {"graphname":getName(),"graphdata":{n:problem.n,x:problem.x,y:problem.y,edges:problem.edges}};
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST","https://api.bmob.cn/1/classes/swap_storage");
+    xhr.setRequestHeader("X-Bmob-Application-Id","4aea56c56c6be13230a4f2bc64138ed0");
+    xhr.setRequestHeader("X-Bmob-REST-API-Key","0430973542ba947fd8474cfdb249be81");
+    xhr.setRequestHeader("Content-Type","application/json");
+    xhr.send(data);
+}
+
+function loadRandomFromSociety(){
+
 }

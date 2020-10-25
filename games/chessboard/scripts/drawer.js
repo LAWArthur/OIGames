@@ -24,7 +24,6 @@ class Drawer {
                     e.preventDefault();
                     this.firstAngle = this.secondAngle = [r,c];
                     this.selecting = true;
-                    console.log(this.firstAngle);
                     this.render();
                 });
 
@@ -32,7 +31,6 @@ class Drawer {
                     e.preventDefault();
                     if(!this.selecting) return;
                     this.secondAngle = [r,c];
-                    console.log(this.firstAngle,this.secondAngle);
                     this.render();
                 });
             }
