@@ -157,14 +157,18 @@ function loadSavedProblem(){
     let key = $("#saved").val();
     if(key!=null){
         let p = savedProblems[key];
-        setFinish(false);
-        $("#answer").text(0);
-        problem = new Problem(1,p.n,p.x,p.y,p.edges,key);
-        solver = new Solver(problem);
-        drawer = new Drawer($("#game")[0], problem, 750, 750);
-        $("#problemid").text(`#${problem.name}`);
-        drawer.draw(0, 0);
+        
     }
+}
+
+function loadProblem(p){
+    setFinish(false);
+    $("#answer").text(0);
+    problem = new Problem(1,p.n,p.x,p.y,p.edges,key);
+    solver = new Solver(problem);
+    drawer = new Drawer($("#game")[0], problem, 750, 750);
+    $("#problemid").text(`#${problem.name}`);
+    drawer.draw(0, 0);
 }
 
 function addSavedOption(option){
@@ -195,6 +199,23 @@ function loadRandomFromSociety(){
     xhr.onreadystatechange = (e)=>{
         if(xhr.readyState == 4 && xhr.status == 200){
             console.log(xhr.response);
+            let cnt = xhr.response["results"][0]["_sumM_counter"];
+            let c = Math.floor(Math.random()*cnt);
+
+            xhr = new XMLHttpRequest();
+            xhr.open("GET",encodeURI(`https://api.bmob.cn/1/classes/swap_storage?where={"uid":${c}}`,true));
+            
+            xhr.onreadystatechange = (e)=>{
+                if(xhr.readyState==4&&xhr.status==200){
+                    console.log(xhr.response);
+                    loadProblem(xhr.response["results"][0]);
+                }
+            }
+
+            xhr.setRequestHeader("X-Bmob-Application-Id","4aea56c56c6be13230a4f2bc64138ed0");
+            xhr.setRequestHeader("X-Bmob-REST-API-Key","0430973542ba947fd8474cfdb249be81");
+            xhr.setRequestHeader("Content-Type","application/json");
+            xhr.send(null);
         }
     }
 
