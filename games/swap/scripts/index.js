@@ -190,7 +190,7 @@ function saveToSociety(){
 function loadRandomFromSociety(){
     //获得题目数量
     let xhr = new XMLHttpRequest();
-    xhr.open("GET","https://api.bmob.cn/1/classes/swap_storage&sum=m_counter",true);
+    xhr.open("GET","https://api.bmob.cn/1/classes/swap_storage?sum=m_counter",true);
 
     xhr.onreadystatechange = (e)=>{
         if(xhr.readyState == 4 && xhr.status == 200){
