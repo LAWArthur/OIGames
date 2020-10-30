@@ -199,7 +199,7 @@ function loadRandomFromSociety(){
     xhr.onreadystatechange = (e)=>{
         if(xhr.readyState == 4 && xhr.status == 200){
             console.log(xhr.response);
-            let cnt = xhr.response["results"][0]["_sumM_counter"];
+            let cnt = JSON.parse(xhr.response)["results"][0]["_sumM_counter"];
             let c = Math.floor(Math.random()*cnt);
 
             xhr = new XMLHttpRequest();
@@ -208,7 +208,7 @@ function loadRandomFromSociety(){
             xhr.onreadystatechange = (e)=>{
                 if(xhr.readyState==4&&xhr.status==200){
                     console.log(xhr.response);
-                    loadProblem(xhr.response["results"][0]);
+                    loadProblem(JSON.parse(xhr.response)["results"][0]);
                 }
             }
 
