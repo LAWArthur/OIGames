@@ -182,7 +182,7 @@ function saveToSociety(){
     xhr.setRequestHeader("X-Bmob-Application-Id","4aea56c56c6be13230a4f2bc64138ed0");
     xhr.setRequestHeader("X-Bmob-REST-API-Key","0430973542ba947fd8474cfdb249be81");
     xhr.setRequestHeader("Content-Type","application/json");
-    xhr.send(data);
+    xhr.send(JSON.stringify(data));
 }
 
 function loadRandomFromSociety(){
