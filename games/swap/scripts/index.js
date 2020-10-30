@@ -118,6 +118,8 @@ function bindEvents() {
 
     $("#post").click(saveToSociety);
 
+    $("#loadfs").click(loadRandomFromSociety);
+
     window.onunload = () => {
         localStorage.setItem("savedProblems",JSON.stringify(savedProblems));
     };
