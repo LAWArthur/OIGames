@@ -157,11 +157,11 @@ function loadSavedProblem(){
     let key = $("#saved").val();
     if(key!=null){
         let p = savedProblems[key];
-        
+        loadProblem(p,key);
     }
 }
 
-function loadProblem(p){
+function loadProblem(p,key){
     setFinish(false);
     $("#answer").text(0);
     problem = new Problem(1,p.n,p.x,p.y,p.edges,key);
@@ -208,7 +208,7 @@ function loadRandomFromSociety(){
             xhr.onreadystatechange = (e)=>{
                 if(xhr.readyState==4&&xhr.status==200){
                     console.log(xhr.response);
-                    loadProblem(JSON.parse(xhr.response)["results"][0]);
+                    loadProblem(JSON.parse(xhr.response)["results"][0]["graphdata"],JSON.parse(xhr.response)["results"][0]["graphname"]);
                 }
             }
 
